@@ -1,6 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './client/css/index.css';
-import UserDashboard from './UserDashboard';
+import { Provider } from "react-redux";
 
-ReactDOM.render(<UserDashboard />, document.getElementById('root'));
+import {UserDashboard} from './users';
+import {configureStore} from './store/configureStore';
+
+import './client/css/index.css';
+
+let store = configureStore({});
+ReactDOM.render(
+    <Provider store={store}>
+        <UserDashboard />
+    </Provider>, document.getElementById('root'));
